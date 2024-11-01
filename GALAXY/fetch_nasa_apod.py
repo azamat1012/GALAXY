@@ -26,7 +26,7 @@ def fetch_nasa_apod(api_key, place_to_save=images_path):
         if url:
             file_name = f"nasa_apod_{index}"
             load_image(url, place_to_save, name_of_img=file_name)
-            print(f"Downloaded {file_name}")
+
 
 
 if __name__ == "__main__":

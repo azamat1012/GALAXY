@@ -32,10 +32,13 @@ def main():
     """Основная функция для запуска публикации изображений."""
     load_dotenv(".env")
     TG_TOKEN = os.getenv("TG_TOKEN")
-    CHAT_ID = "напишите Ваш chat-id группы"
+    CHAT_ID = os.getenv("CHAT_ID")
     parser = argparse.ArgumentParser(
         description="Автоматическая публикация изображений в Telegram канал.")
-    parser.add_argument("directory", help="Путь к директории с изображениями.")
+    current_dir = os.path.dirname(__file__)
+    img__path = f"{current_dir}/images"
+    parser.add_argument("directory", default=img__path,
+                        help="Путь к директории с изображениями.")
     parser.add_argument("--interval", type=int, default=DEFAULT_INTERVAL,
                         help="Интервал публикации в секундах (по умолчанию: 4 часа).")
 
